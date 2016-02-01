@@ -15,7 +15,7 @@ L.TileLayer.MBTiles = L.TileLayer.extend({
 		var base64Prefix = 'data:image/gif;base64,';
 
 		this.mbTilesDB.executeSql("SELECT tile_data FROM images INNER JOIN map ON images.tile_id = map.tile_id WHERE zoom_level = ? AND tile_column = ? AND tile_row = ?", [z, x, y], function (res) {
-			tile.src = base64Prefix + res.rows[0].tile_data;
+			tile.src = base64Prefix + res.rows.item(0).tile_data;
 		}, function (er) {
 			console.log('error with executeSql', er);
 		});

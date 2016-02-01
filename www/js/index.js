@@ -8,7 +8,7 @@ remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 
 
 function buildMap() {
-    var db = new SQLitePlugin(localFileName);
+    var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
 
     document.body.removeChild(msg);
 
@@ -61,7 +61,7 @@ var app = {
 
                 msg.innerHTML = 'File already exists on device. Building map...';
 
-                buildMap();
+                buildMap(fs.root.toURL() + '/' + localFileName);
             }, function () {
                 // file does not exist
                 console.log('does not exist');
@@ -75,11 +75,11 @@ var app = {
                         msg.innerHTML = 'PR:' + progressEvent.loaded / progressEvent.total;
                     }
                 };
-                ft.download(remoteFile, fs.root.fullPath + '/' + localFileName, function (entry) {
+                ft.download(remoteFile, fs.root.toURL() + '/' + localFileName, function (entry) {
                     console.log('download complete: ' + entry.fullPath);
 
                     msg.innerHTML = 'OK';
-                    buildMap();
+                    buildMap(fs.root.toURL() + '/' + localFileName);
 
                 }, function (error) {
                     console.log('error with download', error);
