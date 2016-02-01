@@ -9,10 +9,9 @@ remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    var db = sqlitePlugin.openDatabase({ name: fileName, location: 2, createFromLocation: 1 });
+    var db = sqlitePlugin.openDatabase({ name: '/mnt/sdcard/' + localFileName, location: 2, createFromLocation: 1 });
 
 
-    msg.innerHTML = 'File ' + fileName + ' - ' + fs.root.fullPath + '/' + localFileName;
 
     document.body.removeChild(msg);
 
@@ -76,7 +75,9 @@ var app = {
                 ft = new FileTransfer();
                 ft.onprogress = function(progressEvent) {
                     if (progressEvent.lengthComputable) {
-                        msg.innerHTML = 'PR:' + progressEvent.loaded / progressEvent.total;
+
+                        msg.innerHTML = 'File ' + fs.root.toURL() + '/' + localFileName + ' - ' + fs.root.fullPath + '/' + localFileName
+                        + 'PR:' + progressEvent.loaded / progressEvent.total;
                     }
                 };
                 ft.download(remoteFile, fs.root.toURL() + '/' + localFileName, function (entry) {
