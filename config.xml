@@ -2,16 +2,14 @@
 <widget id="com.esvit.jewmap" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
-    <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+    <name>JewMap</name>
+    <description>Offline map</description>
+    <author email="esvit666@gmail.com" href="http://esvit.name">Vitalii Savchuk</author>
     <content src="index.html" />
     <access origin="*" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
+    <icon src="res/icon.png" />
 
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
