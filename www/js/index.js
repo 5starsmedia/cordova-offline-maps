@@ -1,21 +1,27 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
+var localFileName;	// the filename of the local mbtiles file
+var remoteFile;		// the url of the remote mbtiles file to be downloaded
+var msg;			// the span to show messages
+
+localFileName = 'test.mbtiles';
+remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
+
+
+function buildMap() {
+    var db = new SQLitePlugin(localFileName);
+
+    document.body.removeChild(msg);
+
+    var map = new L.Map('map', {
+        center: new L.LatLng(40.6681, -111.9364),
+        zoom: 11
+    });
+
+    var lyr = new L.TileLayer.MBTiles('', {maxZoom: 14, scheme: 'tms'}, db);
+
+    map.addLayer(lyr);
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -37,14 +43,52 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        var fs;				// file system object
+        var ft;				// TileTransfer object
 
-        console.log('Received Event: ' + id);
+        msg = document.getElementById('message');
+
+        console.log('requesting file system...');
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
+            console.log('file system retrieved.');
+            fs = fileSystem;
+
+            // check to see if files already exists
+            var file = fs.root.getFile(localFileName, {create: false}, function () {
+                // file exists
+                console.log('exists');
+
+                msg.innerHTML = 'File already exists on device. Building map...';
+
+                buildMap();
+            }, function () {
+                // file does not exist
+                console.log('does not exist');
+
+                msg.innerHTML = 'Downloading file (~14mbs)...' + fs.root.fullPath + '/' + localFileName;
+
+                console.log('downloading sqlite file...');
+                ft = new FileTransfer();
+                ft.onprogress = function(progressEvent) {
+                    if (progressEvent.lengthComputable) {
+                        msg.innerHTML = 'PR:' + progressEvent.loaded / progressEvent.total;
+                    }
+                };
+                ft.download(remoteFile, fs.root.fullPath + '/' + localFileName, function (entry) {
+                    console.log('download complete: ' + entry.fullPath);
+
+                    msg.innerHTML = 'OK';
+                    buildMap();
+
+                }, function (error) {
+                    console.log('error with download', error);
+                });
+            },
+            function(error) {
+                msg.innerHTML = "download error source " + error.source + "download error target " + error.target + "upload error code" + error.code;
+            });
+        });
     }
 };
 
