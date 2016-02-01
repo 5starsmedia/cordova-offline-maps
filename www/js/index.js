@@ -11,6 +11,9 @@ function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
     var db = sqlitePlugin.openDatabase({ name: fileName, location: 2, createFromLocation: 1 });
 
+
+    msg.innerHTML = 'File ' + fileName + ' - ' + fs.root.fullPath + '/' + localFileName;
+
     document.body.removeChild(msg);
 
     var map = new L.Map('map', {
