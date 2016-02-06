@@ -2,7 +2,7 @@
 <widget id="com.esvit.jewmap" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>JewMap</name>
+    <name>Еврейская Украина</name>
     <description>Offline map</description>
     <author email="esvit666@gmail.com" href="http://esvit.name">Vitalii Savchuk</author>
     <content src="index.html" />
