@@ -31,7 +31,7 @@
         var mapStyle = {
             "version": 8,
             "sources": {
-                "naturalearth": {
+                "ukraine": {
                     "type": "vector",
                     "tiles": [
                         "{z}/{x}/{y}"
@@ -47,14 +47,14 @@
                     "paint": {
                         "background-color": "#000000"
                     }
-                },
-                {
-                    "id": "naturalearth",
-                    "type": "line",
-                    "source": "naturalearth",
-                    "source-layer": "ne_110m_admin_0_countries_lakes",
+                }, {
+                    "id": "water",
+                    "type": "fill",
+                    "source": "osm",
+                    "source-layer": "water",
+                    "filter": ["==", "$type", "Polygon"],
                     "paint": {
-                        "line-color": "#ff0000"
+                        "fill-color": "#3887be"
                     }
                 }
             ]
