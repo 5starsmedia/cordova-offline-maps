@@ -25,7 +25,7 @@
     <preference name="BackupWebStorage" value="none"/>
 
     <preference name="BackgroundColor" value="0xffffffff"/>
-    <preference name="TopActivityIndicator" value="whiteLarge"/>
+    <preference name="StatusBarOverlaysWebView" value="false"/>
 
     <access origin="*" />
     <allow-intent href="http://*/*" />
