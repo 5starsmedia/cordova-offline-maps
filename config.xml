@@ -16,7 +16,7 @@
     <plugin name="org.apache.cordova.geolocation" source="pgb" spec="0.3.12" />
     <plugin name="io.litehelpers.cordova.sqlitestorage" spec="0.7.5" source="pgb" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
-
+    <plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
