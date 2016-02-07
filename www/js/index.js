@@ -9,7 +9,7 @@ remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    sqlitePlugin.openDatabase({ name: localFileName, location: 2, createFromLocation: 1 }, function(db) {
+    sqlitePlugin.openDatabase({ name: fileName, location: 2, createFromLocation: 1 }, function(db) {
         db.transaction(function(tx) {
             document.body.removeChild(msg);
 
