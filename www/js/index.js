@@ -6,21 +6,50 @@ var msg;			// the span to show messages
 localFileName = 'test.mbtiles';
 remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 
+var mapStyle = {
+    "version": 8,
+    "sources": {
+        "ukraine": {
+            "type": "vector",
+            "tiles": [
+                "{z}/{x}/{y}"
+            ],
+            "minzoom": 0,
+            "maxzoom": 16
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "#000000"
+            }
+        }, {
+            "id": "water",
+            "type": "fill",
+            "source": "osm",
+            "source-layer": "water",
+            "filter": ["==", "$type", "Polygon"],
+            "paint": {
+                "fill-color": "#3887be"
+            }
+        }
+    ]
+};
+
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
     sqlitePlugin.openDatabase({ name: 'test.mbtiles', createFromLocation: 1 }, function(db) {
 
-        alert('OK');
-        document.body.removeChild(msg);
-
-        var map = new L.Map('map', {
-            center: new L.LatLng(40.6681, -111.9364),
-            zoom: 11
+        var map = new mapboxgl.Map({
+            container: 'map',
+            center: [0, 0],
+            zoom: 2,
+            style: mapStyle,
+            bearingSnap: 45
         });
-
-        var lyr = new L.TileLayer.MBTiles('', {maxZoom: 14, scheme: 'tms'}, db);
-
-        map.addLayer(lyr);
+        map.addControl(new mapboxgl.Navigation());
 
     }, function(err) {
         alert('Open database ERROR: ' + JSON.stringify(err));
