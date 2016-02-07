@@ -44,7 +44,7 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 */
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    sqlitePlugin.openDatabase({ name: localFileName, location: 2 }, function(db) {
+    /*sqlitePlugin.openDatabase({ name: localFileName, location: 2 }, function(db) {
 
         alert('OK');
         document.body.removeChild(msg);
@@ -60,7 +60,7 @@ function buildMap(fileName) {
 
     }, function(err) {
         alert('Open database ERROR: ' + JSON.stringify(err));
-    });
+    });*/
 }
 
 var app = {
