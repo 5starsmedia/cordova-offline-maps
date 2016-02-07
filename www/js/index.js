@@ -6,10 +6,45 @@ var msg;			// the span to show messages
 localFileName = 'test.mbtiles';
 remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 
+/*
+try {
+    var db = sqlitePlugin.open1Database({
+        name: 'file:///var/mobile/Containers/Data/Application/D08C3251-07D9-4D2D-9AB9-F92F3E288897/Documents/test.mbtiles',
+        location: 2
+    }, function (db) {
 
+        console.info('start')
+        var x = 1, y = 2, z = 3;
+        db.executeSql("SELECT name FROM sqlite_master WHERE type='table';", [], function (res) {
+            console.info(res.rows.length);
+            db.close()
+        }, function (err) {
+            console.info(err)
+        });
+
+    }, function (e) {
+        console.info(e)
+    });
+} catch (e) {
+    console.info(e)
+}
+
+
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
+    console.log('file system retrieved.');
+    fs = fileSystem;
+
+    // check to see if files already exists
+    var file = fs.root.getFile(localFileName, {create: false}, function () {
+        console.info('1', arguments)
+    }, function() {
+        console.info('2', arguments)
+    })
+})
+*/
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    sqlitePlugin.openDatabase({ name: fileName, location: 2, createFromLocation: 1 }, function(db) {
+    sqlitePlugin.openDatabase({ name: localFileName, location: 2 }, function(db) {
 
         alert('OK');
         document.body.removeChild(msg);
