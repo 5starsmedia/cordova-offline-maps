@@ -40,14 +40,14 @@ var mapStyle = {
 
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    var map = new mapboxgl.Map({
+    /*var map = new mapboxgl.Map({
         container: 'map',
         center: [0, 0],
         zoom: 2,
         style: mapStyle,
         bearingSnap: 45
     });
-    map.addControl(new mapboxgl.Navigation());
+    map.addControl(new mapboxgl.Navigation());*/
 }
 
 
