@@ -26,6 +26,8 @@
     <preference name="BackgroundColor" value="0xffffffff"/>
     <preference name="StatusBarOverlaysWebView" value="false"/>
 
+    <preference name="Orientation" value="portrait" />
+
     <icon src="res/icon.png" />
 
     <access origin="*" />
