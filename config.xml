@@ -15,7 +15,7 @@
     <plugin name="io.litehelpers.cordova.sqlitestorage" spec="0.7.5" source="pgb" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
     <plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" />
-    <!--plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" /-->
+    <plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -26,8 +26,7 @@
     <preference name="BackgroundColor" value="0xffffffff"/>
     <preference name="StatusBarOverlaysWebView" value="false"/>
 
-    <preference name="SplashScreen" value="res/splashscreen.jpg" />
-    <preference name="SplashScreenDelay" value="30000" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreen" value="false"/>
 
@@ -42,6 +41,8 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+
+        <splash src="res/splashscreen.jpg" density="land-hdpi"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -72,5 +73,17 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="res/icon-50.png" width="50" height="50" />
         <icon src="res/icon-50@2x.png" width="100" height="100" />
+
+
+        <splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
+        <splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+        <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+        <splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+        <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+        <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
+        <splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
+        <splash src="res/screen/ios/Default-Landscape-736h.png" width="2208" height="1242"/>
     </platform>
 </widget>
