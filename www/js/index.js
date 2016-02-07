@@ -4,7 +4,7 @@ var remoteFile;		// the url of the remote mbtiles file to be downloaded
 var msg;			// the span to show messages
 
 localFileName = 'test.mbtiles';
-remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
+remoteFile = 'https://github.com/5starsmedia/cordova-offline-maps/raw/master/www/ukraine.mbtiles';
 
 var mapStyle = {
     "version": 8,
