@@ -3,7 +3,7 @@ var localFileName;	// the filename of the local mbtiles file
 var remoteFile;		// the url of the remote mbtiles file to be downloaded
 var msg;			// the span to show messages
 
-localFileName = 'test.mbtiles';
+localFileName = 'ukraine.mbtiles';
 remoteFile = 'https://github.com/5starsmedia/cordova-offline-maps/raw/master/www/ukraine.mbtiles';
 
 var mapStyle = {
