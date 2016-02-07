@@ -12,7 +12,7 @@ function buildMap(fileName) {
     var db = sqlitePlugin.openDatabase({ name: localFileName, location: 2, createFromLocation: 1 });
 
 
-
+alert(localFileName);
     document.body.removeChild(msg);
 
     var map = new L.Map('map', {
