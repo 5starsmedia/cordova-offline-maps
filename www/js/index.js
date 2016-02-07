@@ -40,38 +40,14 @@ var mapStyle = {
 
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    //sqlitePlugin.openDatabase({ name: 'test.mbtiles', createFromLocation: 1 }, function(db) {
-
-        var map = new mapboxgl.Map({
-            container: 'map',
-            center: [0, 0],
-            zoom: 2,
-            style: mapStyle,
-            bearingSnap: 45
-        });
-        map.addControl(new mapboxgl.Navigation());
-
-    /*}, function(err) {
-        alert('Open database ERROR: ' + JSON.stringify(err));
-    });*/
-}
-
-function buildMap(fileName) {
-    //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    sqlitePlugin.openDatabase({ name: 'test.mbtiles', createFromLocation: 1 }, function(db) {
-
-        var map = new mapboxgl.Map({
-            container: 'map',
-            center: [0, 0],
-            zoom: 2,
-            style: mapStyle,
-            bearingSnap: 45
-        });
-        map.addControl(new mapboxgl.Navigation());
-
-    }, function(err) {
-        alert('Open database ERROR: ' + JSON.stringify(err));
+    var map = new mapboxgl.Map({
+        container: 'map',
+        center: [0, 0],
+        zoom: 2,
+        style: mapStyle,
+        bearingSnap: 45
     });
+    map.addControl(new mapboxgl.Navigation());
 }
 
 
