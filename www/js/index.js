@@ -111,7 +111,7 @@ var app = {
                         + 'PR:' + progressEvent.loaded / progressEvent.total;
                     }
                 };
-                ft.download(remoteFile, fs.root.toURL() + '/' + localFileName, function (entry) {
+                ft.download(remoteFile, cordova.file.dataDirectory + localFileName, function (entry) {
                     console.log('download complete: ' + entry.fullPath);
 
                     msg.innerHTML = 'OK';
