@@ -10,22 +10,21 @@ remoteFile = 'http://dl.dropbox.com/u/14814828/OSMBrightSLValley.mbtiles';
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
     sqlitePlugin.openDatabase({ name: fileName, location: 2, createFromLocation: 1 }, function(db) {
-        db.transaction(function(tx) {
-            alert('OK');
-            document.body.removeChild(msg);
 
-            var map = new L.Map('map', {
-                center: new L.LatLng(40.6681, -111.9364),
-                zoom: 11
-            });
+        alert('OK');
+        document.body.removeChild(msg);
 
-            var lyr = new L.TileLayer.MBTiles('', {maxZoom: 14, scheme: 'tms'}, tx);
-
-            map.addLayer(lyr);
-
-        }, function(err) {
-            alert('Open database ERROR: ' + JSON.stringify(err));
+        var map = new L.Map('map', {
+            center: new L.LatLng(40.6681, -111.9364),
+            zoom: 11
         });
+
+        var lyr = new L.TileLayer.MBTiles('', {maxZoom: 14, scheme: 'tms'}, db);
+
+        map.addLayer(lyr);
+
+    }, function(err) {
+        alert('Open database ERROR: ' + JSON.stringify(err));
     });
 }
 
