@@ -4,7 +4,7 @@ var remoteFile;		// the url of the remote mbtiles file to be downloaded
 var msg;			// the span to show messages
 
 localFileName = 'ukraine.mbtiles';
-remoteFile = 'https://github.com/5starsmedia/cordova-offline-maps/raw/master/www/ukraine.mbtiles';
+remoteFile = 'http://5stars.link:8081/ukraine3.mbtiles';
 
 var mapStyle = {
     "version": 8,
