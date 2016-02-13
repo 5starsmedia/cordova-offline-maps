@@ -16,17 +16,18 @@
     left: 0px ;
     position: absolute ;
     top: 0px ;
-    z-index: 2 ;
+    z-index: 2;
 }
 .viewport .fader.show {
     display: block ;
-    transition: opacity 250ms ease ;
+    transition: opacity 500ms ease ;
 }
 .viewport .fader.fadeOut {
-    opacity: 0 ;
+    opacity: 0;
 }
 .viewport .main {
     display: block;
+    z-index: 1;
 }
 
 

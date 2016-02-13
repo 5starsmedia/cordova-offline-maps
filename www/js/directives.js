@@ -43,7 +43,7 @@ app.directive(
             }
             function startFade() {
                 fader.addClass( "fadeOut" );
-                setTimeout( teardownFade, 250 );
+                setTimeout( teardownFade, 500);
             }
             function teardownFade() {
                 fader.removeClass( "show fadeOut" );
