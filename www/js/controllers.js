@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
 })
 .controller('PageCompassCtrl', function($scope) {
 try {
-  var rotate_object = null;
+  var rotate_object = document.getElementById('needle');
   var watchID = null;
 
   function startNeedle() {
@@ -96,7 +96,6 @@ try {
   }
 
 
-  startNeedle();
   startWatch();
   $scope.$on('$destroy', stopWatch);
 } catch (e) {
