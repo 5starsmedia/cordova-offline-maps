@@ -1,0 +1,28 @@
+{
+  "browse": {
+    "title": "Обзор",
+    "items": [
+      {
+        "id": 1,
+        "title": "История",
+        "description": "Еврейской Украины",
+        "icon": "ukraine"
+      },
+      {
+        "id": 2,
+        "title": "Перед поездкой",
+        "icon": "question"
+      },
+      {
+        "id": 3,
+        "title": "Климат Украины",
+        "icon": "weather"
+      },
+      {
+        "id": 4,
+        "title": "Деньги",
+        "icon": "money"
+      }
+    ]
+  }
+}

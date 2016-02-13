@@ -1,5 +1,28 @@
 angular.module('starter.services', [])
 
+.factory('Data', function($http, $q) {
+
+  var promise = $http.get('data.json');
+
+  return {
+    all: function() {
+      return chats;
+    },
+    remove: function(chat) {
+      chats.splice(chats.indexOf(chat), 1);
+    },
+    get: function(pageId, callback) {
+      var def = $q.defer();
+
+      promise.success(function(data) {
+        def.resolve(data[pageId])
+      }).error(function(err) {
+        def.reject(err);
+      });
+      return def.promise;
+    }
+  };
+})
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

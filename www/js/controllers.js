@@ -17,7 +17,13 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+.controller('PageListCtrl', function($scope, page) {
+  $scope.page = page;
+
+  $scope.list = page.items;
+})
+
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, Data) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 

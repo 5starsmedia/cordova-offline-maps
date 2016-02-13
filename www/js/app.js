@@ -68,6 +68,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
+      .state('tab.browse', {
+        url: '/menu/browse',
+        views: {
+          'tab-menu': {
+            templateUrl: 'templates/page-list.html',
+            controller: 'PageListCtrl'
+          }
+        },
+        resolve: {
+          page: function(Data) {
+            return Data.get('browse');
+          }
+        }
+      })
+      .state('tab.browse/info', {
+        url: '/menu/browse/:id',
+        views: {
+          'tab-menu': {
+            templateUrl: 'templates/page-objectInfo.html',
+            controller: 'PageListCtrl'
+          }
+        },
+        resolve: {
+          page: function(Data) {
+            return {};
+          }
+        }
+      })
     .state('tab.objectInfo', {
       url: '/menu/:chatId',
       views: {
