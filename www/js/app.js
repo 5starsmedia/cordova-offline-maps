@@ -133,12 +133,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   $rootScope.images = [
     {
-      source: "img/adam.jpg",
-      title: ''
+      source: "img/1.jpg"
     },
     {
-      source: "img/mike.png",
-      title: ''
+      source: "img/2.jpg"
+    },
+    {
+      source: "img/3.jpg"
     }
   ];
   $rootScope.image = getRandomImage();
