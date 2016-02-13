@@ -126,6 +126,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .run(function($rootScope, $interval, $state) {
 
+  try {
   $rootScope.$state = $state;
 
   var n = 0;
@@ -148,9 +149,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       source: "img/3.jpg"
     }
   ];
-  $rootScope.image = getRandomImage();
 
-  $interval(function() {
-    $rootScope.image = getRandomImage();
-  }, 3000);
+    var timer = null;
+    var nextImage = function () {
+      $rootScope.$apply(function () {
+        $rootScope.image = getRandomImage();
+      });
+      timer = setTimeout(nextImage, 3000);
+    };
+    nextImage();
+  } catch (e) {
+    alert(e)
+  }
 })
