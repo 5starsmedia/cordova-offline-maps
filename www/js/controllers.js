@@ -51,6 +51,10 @@ angular.module('starter.controllers', [])
   function startWatch() {
 
     var options = { frequency: 100 };
+    if (!navigator.compass) {
+      alert('no navigator.compass');
+      return;
+    }
 
     watchID = navigator.compass.watchHeading(onSuccess, onError, options);
     $('#freeze+div').show();
