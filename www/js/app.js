@@ -128,12 +128,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   $rootScope.$state = $state;
 
+  var n = 0;
   function getRandomImage() {
-    var imageCount = $rootScope.images.length;
-    var index = Math.floor(
-        ( Math.random() * imageCount * 2 ) % imageCount
-    );
-    return( $rootScope.images[ index ] );
+    n++;
+    if (n > $rootScope.images.length - 1) {
+      n = 0;
+    }
+    return $rootScope.images[ n ];
   }
 
   $rootScope.images = [
