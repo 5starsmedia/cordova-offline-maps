@@ -145,5 +145,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   $interval(function() {
     $rootScope.image = getRandomImage();
-  }, 5000);
+  }, 3000);
 })

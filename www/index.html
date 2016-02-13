@@ -32,17 +32,12 @@
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+      <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
 
     <div bn-fade-helper class="viewport">
 
-      <img
-              ng-src="{{ image.source }}"
-              title="{{ image.title }}"
-              class="image"
-      />
+      <div style="background-image: url('{{ image.source }}')" class="main image"></div>
 
     </div>
     <!--

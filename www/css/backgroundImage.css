@@ -1,30 +1,35 @@
 .viewport {
     border-radius: 5px 5px 5px 5px ;
     box-shadow: 1px 1px 5px #454545 ;
-    height: 400px ;
-    position: relative ;
-    width: 400px ;
 }
-.viewport img.fader {
+.viewport, .viewport .image {
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.viewport .fader {
     border-radius: 5px 5px 5px 5px ;
     display: none ;
-    height: 400px ;
     left: 0px ;
     position: absolute ;
     top: 0px ;
-    width: 400px ;
     z-index: 2 ;
 }
-.viewport img.fader.show {
+.viewport .fader.show {
     display: block ;
     transition: opacity 250ms ease ;
 }
-.viewport img.fader.fadeOut {
+.viewport .fader.fadeOut {
     opacity: 0 ;
 }
-.viewport img.image {
-    border-radius: 5px 5px 5px 5px ;
-    display: block ;
-    height: 400px ;
-    width: 400px ;
+.viewport .main {
+    display: block;
+}
+
+.pane {
+    background: transparent;
 }
