@@ -27,6 +27,7 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('PageCompassCtrl', function($scope) {
+try {
   var rotate_object = null;
   var watchID = null;
 
@@ -43,6 +44,7 @@ angular.module('starter.controllers', [])
 
 // Array of names for directions for Info panel
   var directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
+
   function direction(heading) {
     var dir = Math.abs(parseInt((heading) / 45) + 1);
     return directions[dir];
@@ -50,7 +52,7 @@ angular.module('starter.controllers', [])
 
   function startWatch() {
 
-    var options = { frequency: 100 };
+    var options = {frequency: 100};
     if (!navigator.compass) {
       alert('no navigator.compass');
       return;
@@ -97,5 +99,7 @@ angular.module('starter.controllers', [])
   startNeedle();
   startWatch();
   $scope.$on('$destroy', stopWatch);
-
+} catch (e) {
+  alert(e);
+}
 });
