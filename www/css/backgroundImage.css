@@ -1,0 +1,30 @@
+.viewport {
+    border-radius: 5px 5px 5px 5px ;
+    box-shadow: 1px 1px 5px #454545 ;
+    height: 400px ;
+    position: relative ;
+    width: 400px ;
+}
+.viewport img.fader {
+    border-radius: 5px 5px 5px 5px ;
+    display: none ;
+    height: 400px ;
+    left: 0px ;
+    position: absolute ;
+    top: 0px ;
+    width: 400px ;
+    z-index: 2 ;
+}
+.viewport img.fader.show {
+    display: block ;
+    transition: opacity 250ms ease ;
+}
+.viewport img.fader.fadeOut {
+    opacity: 0 ;
+}
+.viewport img.image {
+    border-radius: 5px 5px 5px 5px ;
+    display: block ;
+    height: 400px ;
+    width: 400px ;
+}

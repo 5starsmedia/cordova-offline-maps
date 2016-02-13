@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -119,4 +119,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/menu');
 
-});
+})
+
+.run(function($rootScope, $interval) {
+
+  function getRandomImage() {
+    var imageCount = $rootScope.images.length;
+    var index = Math.floor(
+        ( Math.random() * imageCount * 2 ) % imageCount
+    );
+    return( $rootScope.images[ index ] );
+  }
+
+  $rootScope.images = [
+    {
+      source: "img/adam.jpg",
+      title: ''
+    },
+    {
+      source: "img/mike.png",
+      title: ''
+    }
+  ];
+  $rootScope.image = getRandomImage();
+
+  $interval(function() {
+    $rootScope.image = getRandomImage();
+  }, 5000);
+})
