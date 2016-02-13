@@ -94,6 +94,7 @@ angular.module('starter.controllers', [])
   }
 
 
+  startNeedle();
   startWatch();
   $scope.$on('$destroy', stopWatch);
 
