@@ -1,0 +1,20 @@
+.mainMenu {
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 80px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px #000;
+}
+
+.mainMenu .viewport {
+    position: absolute;
+    -webkit-filter: blur(10px);
+    left: -20px;
+    bottom: -80px;
+    right: -20px;
+    top: -50%;
+}
