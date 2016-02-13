@@ -1,19 +1,29 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+})
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+.controller('ChatsCtrl', function($scope, $interval, $ionicPopup) {
+  $scope.countDown = 0; // number of seconds remaining
+  var stop;
+
+  $scope.timerCountdown  = function(){
+    // set number of seconds until the pizza is ready
+    $scope.countDown = 10;
+
+    // start the countdown
+    stop = $interval(function() {
+      // decrement remaining seconds
+      $scope.countDown--;
+      // if zero, stop $interval and show the popup
+      if ($scope.countDown === 0){
+        $interval.cancel(stop);
+        var alertPopup = $ionicPopup.alert({
+          title: 'Your Pizza Is Ready!',
+          template: 'Bon Appétit!'});
+      }
+    },1000,0); // invoke every 1 second
   };
 })
 
