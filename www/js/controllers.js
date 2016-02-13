@@ -5,26 +5,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatsCtrl', function($scope, $interval, $ionicPopup) {
-  $scope.countDown = 0; // number of seconds remaining
-  var stop;
+  var n = 0;
+  function getRandomImage() {
+    n++;
+    if (n > $scope.images.length - 1) {
+      n = 0;
+    }
+    $scope.n = n;
+    return $scope.images[ n ];
+  }
 
-  $scope.timerCountdown  = function(){
-    // set number of seconds until the pizza is ready
-    $scope.countDown = 10;
+  $scope.images = [
+    {
+      source: "img/1.jpg"
+    },
+    {
+      source: "img/2.jpg"
+    },
+    {
+      source: "img/3.jpg"
+    }
+  ];
 
-    // start the countdown
-    stop = $interval(function() {
-      // decrement remaining seconds
-      $scope.countDown--;
-      // if zero, stop $interval and show the popup
-      if ($scope.countDown === 0){
-        $interval.cancel(stop);
-        var alertPopup = $ionicPopup.alert({
-          title: 'Your Pizza Is Ready!',
-          template: 'Bon Appétit!'});
-      }
-    },1000,0); // invoke every 1 second
+  var timer = null;
+  var nextImage = function () {
+    $scope.image = getRandomImage();
   };
+  $interval(nextImage, 3000);
+  nextImage();
 })
 
 .controller('PageListCtrl', function($scope, page) {
