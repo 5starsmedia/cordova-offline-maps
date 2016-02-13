@@ -59,7 +59,6 @@ try {
     }
 
     watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-    $('#freeze+div').show();
   }
 
 // Stop watching the compass
@@ -68,7 +67,6 @@ try {
     if (watchID) {
       navigator.compass.clearWatch(watchID);
       watchID = null;
-      $('#freeze+div').hide();
     }
   }
 
