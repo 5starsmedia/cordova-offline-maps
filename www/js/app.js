@@ -68,6 +68,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.compass', {
+      url: '/menu/compass',
+      views: {
+        'tab-menu': {
+          templateUrl: 'templates/page-compass.html',
+          controller: 'PageCompassCtrl'
+        }
+      }
+    })
 
   .state('tab.map', {
     url: '/map',

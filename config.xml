@@ -34,7 +34,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreen" value="false"/>
-    <preference name="Orientation" value="portrait" />
+    <preference name="orientation" value="portrait" />
 
     <preference name="webviewbounce" value="false"/>
     <preference name="UIWebViewBounce" value="false"/>
