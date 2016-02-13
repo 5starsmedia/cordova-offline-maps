@@ -20,14 +20,9 @@
 }
 .viewport .fader.show {
     display: block ;
-    transition: opacity 500ms ease ;
-    -webkit-transition: opacity 500ms ease ;
-}
-.viewport .fader.fadeOut {
-    opacity: 0;
 }
 .viewport .main {
-    display: none !important;
+    display: block;
     z-index: 1;
 }
 

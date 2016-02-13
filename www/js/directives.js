@@ -27,7 +27,7 @@ app.directive(
             function initFade( fadeSource ) {
                 fader
                     .css( "background-image", 'url("' + fadeSource + '")' )
-                    .addClass( "show" )
+                    .addClass("show").show()
                 ;
                 var img = new Image();
                 img.onload = function() {
@@ -36,17 +36,13 @@ app.directive(
                 img.src = $("div.main").css('backgroundImage').replace('url("', '').replace('")', '');
             }
             function isFading() {
-                return(
-                    fader.hasClass( "show" ) ||
-                    fader.hasClass( "fadeOut" )
-                );
+                return fader.hasClass("show");
             }
             function startFade() {
-                fader.addClass( "fadeOut" );
-                setTimeout( teardownFade, 500);
+                fader.fadeOut("slow", teardownFade);
             }
             function teardownFade() {
-                fader.removeClass( "show fadeOut" );
+                fader.removeClass( "show" );
 
             }
         }
