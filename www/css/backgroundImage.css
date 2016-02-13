@@ -1,6 +1,5 @@
 .viewport {
-    border-radius: 5px 5px 5px 5px ;
-    box-shadow: 1px 1px 5px #454545 ;
+    z-index: -1;
 }
 .viewport, .viewport .image {
     background-size: cover;
@@ -30,6 +29,10 @@
     display: block;
 }
 
-.pane {
+
+.hideHeader .bar.bar-stable .title {
+    color: transparent;
+}
+.hideHeader .bar.bar-stable {
     background: transparent;
 }

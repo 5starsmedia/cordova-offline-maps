@@ -27,19 +27,12 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-  <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
+  <body ng-app="starter" ng-class="{'hideHeader': $state.$current.data.hideHeader}">
+
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
 
-    <div bn-fade-helper class="viewport">
-
-      <div style="background-image: url('{{ image.source }}')" class="main image"></div>
-
-    </div>
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

@@ -1,4 +1,9 @@
 <ion-view view-title="{{page.title}}">
+    <div bn-fade-helper class="viewport">
+
+        <div style="background-image: url('{{ image.source }}')" class="main image"></div>
+
+    </div>
     <ion-content>
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in list" type="item-text-wrap"

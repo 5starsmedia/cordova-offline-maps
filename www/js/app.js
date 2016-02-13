@@ -57,7 +57,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           templateUrl: 'templates/tab-chats.html',
           controller: 'ChatsCtrl'
         }
-      }
+      },
+    data: {
+      hideHeader: true
+    }
     })
       .state('tab.compass', {
         url: '/menu/compass',
@@ -121,7 +124,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 })
 
-.run(function($rootScope, $interval) {
+.run(function($rootScope, $interval, $state) {
+
+  $rootScope.$state = $state;
 
   function getRandomImage() {
     var imageCount = $rootScope.images.length;
