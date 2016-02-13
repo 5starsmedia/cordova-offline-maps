@@ -9,14 +9,14 @@
     width:200px;
     height:200px;
     border-radius:200px;
-    background:url(../img/compass_rose.png);
+    background-image:url(../img/compass_rose.png);
     margin-left:auto;
     margin-right:auto;
 }
 
 #needle {
     position:absolute;
-    background:url(../img/needle.png);
+    background-image:url(../img/needle.png);
     width:24px;
     height:200px;
     z-index:1000;
