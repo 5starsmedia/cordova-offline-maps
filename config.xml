@@ -14,17 +14,21 @@
     <plugin name="org.apache.cordova.geolocation" source="pgb" spec="0.3.12" />
     <plugin name="io.litehelpers.cordova.sqlite" spec="0.7.10" source="pgb" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
-    <plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" />
+    <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" /-->
     <plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
 
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true"/>
+    </feature>
+
     <preference name="BackupWebStorage" value="none"/>
 
     <preference name="BackgroundColor" value="0xffffffff"/>
-    <preference name="StatusBarOverlaysWebView" value="false"/>
+    <!--preference name="StatusBarOverlaysWebView" value="false"/-->
 
 
     <preference name="SplashScreenDelay" value="3000" />
