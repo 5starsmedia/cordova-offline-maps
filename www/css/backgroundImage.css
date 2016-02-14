@@ -8,6 +8,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    -webkit-filter: sepia(1);
+    filter: sepia(1);
 }
 
 .viewport .fader {
@@ -22,7 +24,7 @@
     display: block ;
 }
 .viewport .main {
-    display: block;
+    display: none;
     z-index: 1;
 }
 
