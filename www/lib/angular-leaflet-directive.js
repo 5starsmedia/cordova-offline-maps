@@ -2213,9 +2213,9 @@
                 scrollWheelZoom: true,
                 tap: true,
                 touchZoom: true,
-                zoomControl: true,
+                zoomControl: false,
                 zoomsliderControl: false,
-                zoomControlPosition: 'topleft',
+                zoomControlPosition: 'topright',
                 attributionControl: true,
                 controls: {
                     layers: {
