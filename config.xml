@@ -17,6 +17,7 @@
     <plugin name="org.apache.cordova.device-orientation" spec="0.3.11" source="pgb" />
     <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" /-->
     <plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" />
+    <plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -25,7 +26,6 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true"/>
     </feature>
-    <plugin name="NetworkStatus" value="CDVConnection" />
 
     <preference name="BackupWebStorage" value="none"/>
 
