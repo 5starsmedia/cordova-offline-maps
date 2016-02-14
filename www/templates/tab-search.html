@@ -1,0 +1,22 @@
+<ion-view view-title="Поиск">
+
+  <ion-header-bar class="bar-stable bar-has-input item-input-inset">
+    <label class="item-input-wrapper no-bg">
+      <i class="icon ion-ios-search placeholder-icon text-2x"></i>
+      <input type="search" placeholder="Поиск" ng-model="current.query">
+    </label>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap"
+                ui-sref="tab.browse({ alias: item.alias })">
+        <img ng-src="img/icon/{{item.icon}}.png" />
+        <h2>{{item.title}}</h2>
+        <p>{{item.description}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

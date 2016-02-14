@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('SearchCtrl', function($scope, Data) {
+
+  $scope.current = {
+    query: ''
+  }
+
+  $scope.$watch('current.query', function(query) {
+    if (query == '') {
+      $scope.items = [];
+      return;
+    }
+    Data.search(query).then(function (items) {
+      $scope.items = items;
+    });
+  });
 
 })
 

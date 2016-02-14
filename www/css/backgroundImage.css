@@ -35,10 +35,6 @@
     z-index: 1;
 }
 
-
-.hideHeader .bar.bar-stable .title {
-    color: transparent;
-}
 .hideHeader .bar.bar-stable {
     background: transparent;
 }

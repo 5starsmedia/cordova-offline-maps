@@ -1,15 +1,22 @@
 angular.module('starter.services', [])
 
-.factory('Data', function($http, $q) {
+.factory('Data', function($http, $q, $filter) {
 
   var promise = $http.get('data.json');
 
   return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    search: function(query) {
+      var def = $q.defer();
+
+      promise.success(function(data) {
+        var sData = _.filter(data, { type: 'page' });
+        sData = $filter('filter')(sData, {'title': query});
+        console.info(sData)
+        def.resolve(sData)
+      }).error(function(err) {
+        def.reject(err);
+      });
+      return def.promise;
     },
     getItems: function(items) {
       var def = $q.defer();
