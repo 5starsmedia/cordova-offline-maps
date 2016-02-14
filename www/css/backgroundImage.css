@@ -14,14 +14,15 @@
 
 .viewport .fader {
     border-radius: 5px 5px 5px 5px ;
-    display: none ;
-    left: 0px ;
-    position: absolute ;
+    display: none;
+    left: 0px;
+    position: absolute;
     top: 0px ;
+    opacity: .3;
     z-index: 2;
 }
 .viewport .fader.show {
-    display: block ;
+    display: block;
 }
 .viewport .main {
     display: none;

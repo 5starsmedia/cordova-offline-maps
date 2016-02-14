@@ -39,7 +39,7 @@ app.directive(
                 return fader.hasClass("show");
             }
             function startFade() {
-                fader.fadeOut("slow", teardownFade);
+                //fader.fadeOut("slow", teardownFade);
             }
             function teardownFade() {
                 fader.removeClass( "show" );
