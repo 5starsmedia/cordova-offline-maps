@@ -7,8 +7,8 @@
     <ion-content>
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in list" type="item-text-wrap"
-                      ui-sref="tab.browse/info({ id: item.id })">
-              <img ng-src="{{chat.face}}">
+                      ui-sref="tab.browse({ alias: item.alias })">
+              <img ng-src="img/icon/{{item.icon}}.png" />
               <h2>{{item.title}}</h2>
               <p>{{item.description}}</p>
               <i class="icon ion-chevron-right icon-accessory"></i>

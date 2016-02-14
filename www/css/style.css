@@ -1,1 +1,9 @@
-/* Empty. Add your own CSS if you like */
+ion-item img, .item-avatar img {
+    background-color: #a69875;
+}
+.item {
+    background: transparent;
+}
+.item-complex .item-content {
+    background-color: rgba(255,255,255, .7);
+}

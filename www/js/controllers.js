@@ -35,14 +35,21 @@ angular.module('starter.controllers', [])
   nextImage();
 })
 
-.controller('PageListCtrl', function($scope, page) {
+.controller('PageListCtrl', function($scope, page, Data) {
   $scope.page = page;
 
-  $scope.list = page.items;
-})
+  var places = _.find(page.content, { type: 'places' });
+  if (places) {
+    Data.getItems(places.items).then(function (items) {
+      $scope.places = items;
+    });
+  }
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, Data) {
-  $scope.chat = Chats.get($stateParams.chatId);
+  if (page.items) {
+    Data.getItems(page.items).then(function (items) {
+      $scope.list = items;
+    });
+  }
 })
 
 .controller('AccountCtrl', function($scope) {
@@ -50,6 +57,7 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 })
+
 .controller('PageCompassCtrl', function($scope) {
 try {
   var rotate_object = document.getElementById('needle');

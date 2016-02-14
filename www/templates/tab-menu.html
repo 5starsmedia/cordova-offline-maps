@@ -1,0 +1,70 @@
+<ion-view view-title="Меню">
+    <div bn-fade-helper class="viewport">
+        <div style="background-image: url('{{ image.source }}')" class="main image"></div>
+    </div>
+    <div class="mainMenu">
+        <div bn-fade-helper class="viewport">
+            <div style="background-image: url('{{ image.source }}')" class="main image"></div>
+        </div>
+        <div class="row">
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'browse' })">
+                    <img src="img/menu/browse.png"/>
+                    Обзор
+                </a>
+            </div>
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'places' })">
+                    <img src="img/menu/places.png"/>
+                    Места
+                </a>
+            </div>
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'synagogues' })">
+                    <img src="img/menu/synagogues.png"/>
+                    Синагоги
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'community' })">
+                    <img src="img/menu/community.png"/>
+                    Общины
+                </a>
+            </div>
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'hostels' })">
+                    <img src="img/menu/hostels.png"/>
+                    Жилье
+                </a>
+            </div>
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'food' })">
+                    <img src="img/menu/food.png"/>
+                    Еда
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'help' })">
+                    <img src="img/menu/help.png"/>
+                    Справка
+                </a>
+            </div>
+            <div class="col-33">
+                <a ui-sref="tab.browse({ alias: 'world' })">
+                    <img src="img/menu/world.png"/>
+                    Туризм
+                </a>
+            </div>
+            <div class="col-33">
+                <a href="#/tab/menu/compass">
+                    <img src="img/menu/compass.png"/>
+                    Компас
+                </a>
+            </div>
+        </div>
+    </div>
+</ion-view>

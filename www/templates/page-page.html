@@ -1,0 +1,42 @@
+<ion-view view-title="{{page.title}}">
+  <div bn-fade-helper class="viewport">
+
+    <div style="background-image: url('{{ image.source }}')" class="main image"></div>
+
+  </div>
+  <ion-content class="padding">
+    <div ng-repeat="item in page.content" ng-switch="item.type">
+
+      <div ng-switch-when="card" class="card">
+        <div class="item item-divider" ng-if="item.title" ng-bind="item.title"></div>
+        <div class="item item-text-wrap" ng-bind-html="item.html"></div>
+      </div>
+
+      <div ng-switch-when="card-showcase" class="list card">
+        <div class="item item-avatar">
+          <img ng-src="img/icon/{{page.icon}}.png" />
+          <h2 ng-if="page.title" ng-bind="page.title"></h2>
+          <p ng-if="page.description" ng-bind="page.description"></p>
+        </div>
+        <div class="item item-image" ng-if="page.image">
+          <img ng-src="img/data/{{page.image}}" />
+        </div>
+        <div class="item item-body" ng-if="item.html" ng-bind-html="item.html"></div>
+        <a class="item item-icon-left assertive" href="" ng-if="page.coordinates">
+          <i class="icon ion-ios-location"></i>
+          Показать на карте
+        </a>
+      </div>
+
+      <div ng-switch-when="places" class="card list">
+        <div class="item item-divider">Места рядом</div>
+        <a class="item item-avatar" href="" ng-repeat="place in places"ui-sref="tab.browse({ alias: place.alias })">
+          <img ng-src="img/icon/{{place.icon}}.png" />
+          <h2>{{place.title}}</h2>
+          <p>{{place.description}}</p>
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

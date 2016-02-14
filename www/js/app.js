@@ -54,7 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       url: '/menu',
       views: {
         'tab-menu': {
-          templateUrl: 'templates/tab-chats.html',
+          templateUrl: 'templates/tab-menu.html',
           controller: 'ChatsCtrl'
         }
       },
@@ -72,42 +72,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       })
       .state('tab.browse', {
-        url: '/menu/browse',
+        url: '/menu/:alias',
         views: {
           'tab-menu': {
-            templateUrl: 'templates/page-list.html',
-            controller: 'PageListCtrl'
+            controller: 'PageListCtrl',
+            templateProvider: function($http, $stateParams, Data, $q) {
+              var def = $q.defer();
+
+              Data.get($stateParams.alias).then(function(page) {
+                var templateUrl = 'templates/page-' + page.type + '.html';
+
+                $http.get(templateUrl).then(function(tpl){
+                  def.resolve(tpl.data);
+                });
+              });
+              return def.promise;
+            }
           }
         },
         resolve: {
-          page: function(Data) {
-            return Data.get('browse');
+          page: function(Data, $stateParams) {
+            return Data.get($stateParams.alias);
           }
         }
       })
-      .state('tab.browse/info', {
-        url: '/menu/browse/:id',
-        views: {
-          'tab-menu': {
-            templateUrl: 'templates/page-objectInfo.html',
-            controller: 'PageListCtrl'
-          }
-        },
-        resolve: {
-          page: function(Data) {
-            return {};
-          }
-        }
-      })
-    .state('tab.objectInfo', {
-      url: '/menu/:chatId',
-      views: {
-        'tab-menu': {
-          templateUrl: 'templates/page-objectInfo.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
 
   .state('tab.map', {
     url: '/map',
