@@ -57,3 +57,59 @@ app.directive(
         });
     }
 );
+
+
+
+app.directive("mapBox", function() {
+
+    var mapStyle = {
+        "version": 8,
+        "sources": {
+            "naturalearth": {
+                "type": "vector",
+                "tiles": [
+                    "{z}/{x}/{y}"
+                ],
+                "minzoom": 0,
+                "maxzoom": 8
+            }
+        },
+        "layers": [
+            {
+                "id": "background",
+                "type": "background",
+                "paint": {
+                    "background-color": "#000000"
+                }
+            },
+            {
+                "id": "naturalearth",
+                "type": "line",
+                "source": "naturalearth",
+                "source-layer": "ne_110m_admin_0_countries_lakes",
+                "paint": {
+                    "line-color": "#ff0000"
+                }
+            }
+        ]
+    };
+
+    var id = 0;
+    return {
+        restrict: "A",
+        link: function( $scope, element, attributes ) {
+            $scope.id = 'map-' + (++id);
+            element.attr('id', $scope.id);
+
+            var map = new mapboxgl.Map({
+                container: $scope.id,
+                center: [0, 0],
+                zoom: 2,
+                style: mapStyle,
+                bearingSnap: 45
+            });
+            map.addControl(new mapboxgl.Navigation());
+
+        }
+    }
+});

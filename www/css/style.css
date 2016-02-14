@@ -7,3 +7,14 @@ ion-item img, .item-avatar img {
 .item-complex .item-content {
     background-color: rgba(255,255,255, .7);
 }
+
+
+.mapboxgl-canvas-container, .mapboxgl-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto !important;
+    height: auto !important;
+}
