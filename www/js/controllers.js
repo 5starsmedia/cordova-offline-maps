@@ -66,6 +66,15 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('MapCtrl', function($scope, $stateParams) {
+  $scope.buildPath = $stateParams;
+  $scope.center = {
+    lat: 49.1673,
+    lng: 31.0474,
+    zoom: 5
+  };
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

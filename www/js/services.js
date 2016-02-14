@@ -11,7 +11,6 @@ angular.module('starter.services', [])
       promise.success(function(data) {
         var sData = _.filter(data, { type: 'page' });
         sData = $filter('filter')(sData, {'title': query});
-        console.info(sData)
         def.resolve(sData)
       }).error(function(err) {
         def.reject(err);

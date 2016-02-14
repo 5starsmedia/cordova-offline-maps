@@ -119,3 +119,39 @@ app.directive("mapBox", function() {
         }
     }
 });
+
+app.directive("leafRoute", function() {
+    return {
+        restrict: "A",
+        require: ['leaflet'],
+        link: function( $scope, element, attributes, controller) {
+            var leafletScope = controller[0].getLeafletScope();
+            var mapController = controller[0];
+
+            mapController.getMap().then(function(map) {
+                $scope.$watch(attributes.leafRoute, function(coord) {
+                    var lat = coord.lat && parseFloat(coord.lat),
+                        lng = coord.lng && parseFloat(coord.lng);
+
+                    if (!lat || !lng) {
+                        return;
+                    }
+                    navigator.geolocation.getCurrentPosition(function(position) {
+
+                        L.Routing.control({
+                            waypoints: [
+                                L.latLng(lat, lng),
+                                L.latLng(position.coords.latitude, position.coords.longitude)
+                            ],
+                            routeWhileDragging: true
+                        }).addTo(map);
+
+                    }, function() {
+                        alert('Неудалось получить Ваши координаты');
+                    });
+                })
+            });
+
+        }
+    }
+});

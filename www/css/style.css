@@ -9,7 +9,7 @@ ion-item img, .item-avatar img {
 }
 
 
-.mapboxgl-canvas-container, .mapboxgl-canvas {
+.mapboxgl-canvas-container, .mapboxgl-canvas, .leaflet-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,4 +17,8 @@ ion-item img, .item-avatar img {
     bottom: 0;
     width: auto !important;
     height: auto !important;
+}
+
+.leaflet-routing-container {
+    display: none;
 }
