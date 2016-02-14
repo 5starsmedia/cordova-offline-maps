@@ -101,14 +101,20 @@ app.directive("mapBox", function() {
             $scope.id = 'map-' + (++id);
             element.attr('id', $scope.id);
 
-            var map = new mapboxgl.Map({
-                container: $scope.id,
-                center: [0, 0],
-                zoom: 2,
-                style: mapStyle,
-                bearingSnap: 45
-            });
-            map.addControl(new mapboxgl.Navigation());
+            if (window.sqlitePlugin && window.sqlitePlugin.openDatabase) {
+                try {
+                    var map = new mapboxgl.Map({
+                        container: $scope.id,
+                        center: [0, 0],
+                        zoom: 2,
+                        style: mapStyle,
+                        bearingSnap: 45
+                    });
+                    map.addControl(new mapboxgl.Navigation());
+                } catch (e) {
+                    alert(e);
+                }
+            }
 
         }
     }

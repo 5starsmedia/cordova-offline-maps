@@ -129,8 +129,8 @@ try {
     rotate_object.style['-webkit-transform'] = transform;
 
     // Change Info panel
-    document.getElementById('info-panel').innerHTML =
-        direction(heading.magneticHeading) + '<br>' + parseInt(heading.magneticHeading) + ' &deg;';
+    //document.getElementById('info-panel').innerHTML =
+    //    direction(heading.magneticHeading) + '<br>' + parseInt(heading.magneticHeading) + ' &deg;';
   }
 
 // onError: Failed to get the heading
