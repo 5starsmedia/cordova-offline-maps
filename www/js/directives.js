@@ -101,7 +101,7 @@ app.directive("mapBox", function() {
             $scope.id = 'map-' + (++id);
             element.attr('id', $scope.id);
 
-            if (window.sqlitePlugin && window.sqlitePlugin.openDatabase) {
+            /*if (window.sqlitePlugin && window.sqlitePlugin.openDatabase) {
                 try {
                     var map = new mapboxgl.Map({
                         container: $scope.id,
@@ -114,7 +114,7 @@ app.directive("mapBox", function() {
                 } catch (e) {
                     alert(e);
                 }
-            }
+            }*/
 
         }
     }
