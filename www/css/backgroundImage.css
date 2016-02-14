@@ -16,16 +16,17 @@
     left: 0px ;
     position: absolute ;
     top: 0px ;
-    opacity: 0;
-    z-index: 2;
-}
-.viewport .fader.show {
     opacity: 1;
+    display: none;
+    z-index: 2;
     -webkit-transition: opacity .5s ease-in-out;
     -moz-transition: opacity .5s ease-in-out;
     -ms-transition: opacity .5s ease-in-out;
     -o-transition: opacity .5s ease-in-out;
     transition: opacity .5s ease-in-out;
+}
+.viewport .fader.show {
+    display: block;
     z-index: 2;
 }
 .viewport .fader.fadeOut {
