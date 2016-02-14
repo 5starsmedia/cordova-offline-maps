@@ -25,6 +25,7 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true"/>
     </feature>
+    <plugin name="NetworkStatus" value="CDVConnection" />
 
     <preference name="BackupWebStorage" value="none"/>
 
