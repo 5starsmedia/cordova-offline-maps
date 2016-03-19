@@ -29,3 +29,8 @@ ion-item img, .item-avatar img {
     background-size: cover;
     background-position: center center;
 }
+
+.item.item-text-wrap img {
+    max-width: 100%;
+    height: auto;
+}

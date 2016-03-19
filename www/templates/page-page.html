@@ -10,11 +10,11 @@
       <div ng-switch-when="card-showcase" class="list card">
         <div class="item item-avatar">
           <img ng-src="img/icon/{{page.icon}}.png" />
-          <h2 ng-if="page.title" ng-bind="page.title"></h2>
+          <h2 ng-if="page.title" ng-bind="page.title" style="white-space: normal;"></h2>
           <p ng-if="page.description" ng-bind="page.description"></p>
         </div>
         <div class="item item-image" ng-if="page.image">
-          <img ng-src="img/data/{{page.image}}" />
+          <img ng-src="{{page.image}}" />
         </div>
         <div class="item item-body" ng-if="item.html" ng-bind-html="item.html"></div>
         <a class="item item-icon-left assertive" href="" ng-if="page.coordinates" ui-sref="tab.map({ lat: page.coordinates[0], lng: page.coordinates[1] })">

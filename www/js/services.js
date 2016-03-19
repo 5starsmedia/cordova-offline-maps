@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
 .factory('Data', function($http, $q, $filter) {
 
-  var promise = $http.get('data.json');
+  var promise = $http.get('http://jew.5stars.link/api/data');
 
   return {
     search: function(query) {
@@ -33,7 +33,12 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        def.resolve(_.find(data, { alias: pageId }))
+        var page = _.find(data, { alias: pageId });
+        if (page) {
+          def.resolve(page);
+        } else {
+          def.reject({ err: 'notfound' });
+        }
       }).error(function(err) {
         def.reject(err);
       });
