@@ -22,3 +22,10 @@ ion-item img, .item-avatar img {
 .leaflet-routing-container {
     display: none;
 }
+
+.with-bg, .mainMenu {
+    background-image: url('../img/mainbg.png');
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+}

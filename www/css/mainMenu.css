@@ -1,10 +1,10 @@
 .mainMenu {
-    background: rgba(0,0,0,.5);
+    /*background: rgba(0,0,0,.5);*/
     position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 80px;
-    border-radius: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
+    /*border-radius: 10px;*/
     overflow: hidden;
     padding: 5px 0;
     box-shadow: 2px 2px 10px #000;

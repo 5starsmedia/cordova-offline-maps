@@ -1,10 +1,5 @@
 <ion-view view-title="{{page.title}}">
-  <div bn-fade-helper class="viewport">
-
-    <div style="background-image: url('{{ image.source }}')" class="main image"></div>
-
-  </div>
-  <ion-content class="padding">
+  <ion-content class="with-bg padding">
     <div ng-repeat="item in page.content" ng-switch="item.type">
 
       <div ng-switch-when="card" class="card">
