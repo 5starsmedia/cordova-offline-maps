@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, $interval, $ionicPopup) {
+.controller('ChatsCtrl', function($scope, $interval, $ionicModal) {
   var n = 0;
   function getRandomImage() {
     n++;
@@ -29,17 +29,37 @@ angular.module('starter.controllers', [])
     return $scope.images[ n ];
   }
 
-  $scope.images = [
-    {
-      source: "img/1.jpg"
-    },
-    {
-      source: "img/2.jpg"
-    },
-    {
-      source: "img/3.jpg"
-    }
+  $scope.currentLanguage = 'ru';
+  $scope.currentMap = 'online';
+  $scope.languages = [
+    {alias: 'ru',title: 'Русский'},
+    {alias: 'uk',title: 'Українська'},
+    {alias: 'en',title: 'English'},
+    {alias: 'je',title: 'Иврит'}
   ];
+  $scope.mapTypes = [
+    {value: 'online',title: 'Online'},
+    {value: 'offline',title: 'Offline'}
+  ];
+
+  $ionicModal.fromTemplateUrl('settings', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.showSettings = function() {
+    $scope.modal.show();
+  };
+
+  $scope.closeSettings = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 
   var timer = null;
   var nextImage = function () {

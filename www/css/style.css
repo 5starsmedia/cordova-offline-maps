@@ -34,3 +34,16 @@ ion-item img, .item-avatar img {
     max-width: 100%;
     height: auto;
 }
+
+
+
+.btn-settings {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #fff;
+}
+
+.btn-settings:hover {
+    color: #fff;
+}

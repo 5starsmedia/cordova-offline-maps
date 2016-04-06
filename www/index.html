@@ -43,5 +43,39 @@
     </ion-nav-bar>
 
     <ion-nav-view></ion-nav-view>
+
+    <script id="settings" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar-positive">
+          <button ng-click="closeSettings()" class="button button-icon icon ion-close-round pull-right"></button>
+          <h1 class="title">{{'Settings'}}</h1>
+        </ion-header-bar>
+        <ion-content>
+
+
+          <div class="list">
+
+            <div class="item item-divider">Language:</div>
+
+            <ion-radio ng-repeat="language in languages"
+                       ng-value="language.alias"
+                       ng-model="currentLanguage" name="language">
+              {{ language.title }}
+            </ion-radio>
+
+            <div class="item item-divider">Map:</div>
+
+            <ion-radio ng-repeat="map in mapTypes"
+                       ng-value="map.value"
+                       ng-model="currentMap" name="map">
+              {{ map.title }}
+            </ion-radio>
+
+          </div>
+
+
+        </ion-content>
+      </ion-modal-view>
+    </script>
   </body>
 </html>

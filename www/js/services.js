@@ -21,9 +21,10 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        def.resolve(_.filter(data, function(item) {
+        var res = _.filter(data, function(item) {
           return items && items.indexOf(item.id) != -1;
-        }))
+        });
+        def.resolve(res)
       }).error(function(err) {
         def.reject(err);
       });

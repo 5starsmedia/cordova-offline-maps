@@ -9,7 +9,7 @@
   <ion-content>
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap"
+      <ion-item nav-direction="forward" class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap"
                 ui-sref="tab.browse({ alias: item.alias })">
         <img ng-src="img/icon/{{item.icon}}.png" />
         <h2>{{item.title}}</h2>
