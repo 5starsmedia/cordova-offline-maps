@@ -17,6 +17,14 @@
           <img ng-src="{{page.image}}" />
         </div>
         <div class="item item-body" ng-if="item.html" ng-bind-html="item.html"></div>
+        <div class="item item-body" ng-if="page.phone">
+          <strong>Телефон:</strong>
+          <span ng-bind="page.phone"></span>
+        </div>
+        <div class="item item-body" ng-if="page.website">
+          <strong>Сайт:</strong>
+          <a ng-href="page.website" target="_blank" ng-bind="page.website"></a>
+        </div>
         <a class="item item-icon-left assertive" href="" ng-if="page.coordinates" ui-sref="tab.map({ lat: page.coordinates[0], lng: page.coordinates[1] })">
           <i class="icon ion-ios-location"></i>
           Построить маршрут
