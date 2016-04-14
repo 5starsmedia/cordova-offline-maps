@@ -5,7 +5,14 @@ ion-item img, .item-avatar img {
     background: transparent;
 }
 .item-complex .item-content {
-    background-color: rgba(255,255,255, .7);
+    background-color: rgba(255,255,255, .85);
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2), inset 0 -2px 9px rgba(0,0,0,.1);
+}
+.card, .list-inset {
+    background-color: rgba(255,255,255, .85);
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2), inset 0 -2px 9px rgba(0,0,0,.1);
 }
 
 
@@ -35,7 +42,9 @@ ion-item img, .item-avatar img {
     height: auto;
 }
 
-
+.item-content h2 {
+    white-space: normal;
+}
 
 .btn-settings {
     position: absolute;
@@ -46,4 +55,31 @@ ion-item img, .item-avatar img {
 
 .btn-settings:hover {
     color: #fff;
+}
+
+.item-avatar.item-complex {
+    padding: 5px 10px 5px 30px;
+    border: 0 none;
+}
+.item-complex.item-icon-right .item-content {
+    padding: 26px 34px 16px 30px;
+    overflow: visible;
+}
+
+.item-avatar .item-content > img:first-child {
+    left: -20px;
+}
+
+.card .item:first-child {
+    white-space: normal;
+}
+
+
+.item.item-accordion {
+}
+.item.item-accordion.ng-hide {
+}
+.item.item-accordion.ng-hide-add,
+.item.item-accordion.ng-hide-remove {
+    display: block !important;
 }

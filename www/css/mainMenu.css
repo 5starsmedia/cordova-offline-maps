@@ -25,11 +25,11 @@
     width: 100%;
     display: block;
     text-align: center;
-    color: #fff;
+    color: #FFE560;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
-    text-shadow: 1px 1px 2px #000;
+    text-shadow: 0px 1px 2px #000;
 }
 .mainMenu .row .col-33 img {
     width: 100%;

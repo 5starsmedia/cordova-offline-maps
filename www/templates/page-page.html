@@ -3,11 +3,11 @@
     <div ng-repeat="item in page.content" ng-switch="item.type">
 
       <div ng-switch-when="card" class="card">
-        <div class="item item-divider" ng-if="item.title" ng-bind="item.title"></div>
-        <div class="item item-text-wrap" ng-bind-html="item.html"></div>
+        <div class="item item-divider" ng-if="item.title" ng-bind="item.title" ng-click="item.$$isShow = !item.$$isShow"></div>
+        <div class="item item-accordion item-text-wrap" ng-show="item.$$isShow || !item.title" ng-bind-html="item.html"></div>
       </div>
 
-      <div ng-switch-when="card-showcase" class="list card">
+      <div ng-switch-when="card-showcase" class="card">
         <div class="item item-avatar">
           <img ng-src="img/icon/{{page.icon}}.png" />
           <h2 ng-if="page.title" ng-bind="page.title" style="white-space: normal;"></h2>
