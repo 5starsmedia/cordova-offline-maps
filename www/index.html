@@ -1,81 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<html style='height: 100%; width: 100%;'>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/compass.css" rel="stylesheet">
-    <link href="css/backgroundImage.css" rel="stylesheet">
-    <link href="css/mainMenu.css" rel="stylesheet">
-    <link href="css/mapbox-gl.css" rel="stylesheet">
-    <link href="lib/leaflet.css" rel="stylesheet">
+    </head>
+    <body>
+        <span id='message'></span>
+        <div id='map'></div>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <script type="text/javascript" src="lib/jquery-2.2.0.min.js"></script>
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/mapbox-gl.js"></script>
-    <script src="lib/lodash.js"></script>
-    <script src="lib/leaflet.js"></script>
-
-    <script src="lib/leaflet-routing-machine.js"></script>
-
-    <script src="lib/angular-leaflet-directive.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-  </head>
-  <body ng-app="starter" ng-class="{'hideHeader': $state.$current.data.hideHeader}">
-    <ion-nav-bar class="bar-stable" ng-show="!$state.$current.data.hideHeader">
-      <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
-
-    <ion-nav-view></ion-nav-view>
-
-    <script id="settings" type="text/ng-template">
-      <ion-modal-view>
-        <ion-header-bar class="bar-positive">
-          <button ng-click="closeSettings()" class="button button-icon icon ion-close-round pull-right"></button>
-          <h1 class="title">{{'Settings'}}</h1>
-        </ion-header-bar>
-        <ion-content>
-
-
-          <div class="list">
-
-            <div class="item item-divider">Language:</div>
-
-            <ion-radio ng-repeat="language in languages"
-                       ng-value="language.alias"
-                       ng-model="currentLanguage" name="language">
-              {{ language.title }}
-            </ion-radio>
-
-            <div class="item item-divider">Map:</div>
-
-            <ion-radio ng-repeat="map in mapTypes"
-                       ng-value="map.value"
-                       ng-model="currentMap" name="map">
-              {{ map.title }}
-            </ion-radio>
-
-          </div>
-
-
-        </ion-content>
-      </ion-modal-view>
-    </script>
-  </body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <!--script type='text/javascript' src='js/sqlite_plugin.js'></script-->
+        <!--<script type='text/javascript' src="js/mapbox-gl.js"></script>-->
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
