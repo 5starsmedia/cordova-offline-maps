@@ -51,8 +51,20 @@ ion-item img, .item-avatar img {
     right: 15px;
     top: 10px;
     color: #fff;
+    text-shadow: 0 0 7px #000;
 }
-
+.tab-nav.tabs {
+    background-color: #59550d;
+}
+ion-tabs.tabs-color-active-positive .tab-item {
+    color: #fff;
+}
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
+    color: #fff;
+}
+.tab-item .icon {
+    margin-top: 5px;
+}
 .btn-settings:hover {
     color: #fff;
 }
@@ -82,4 +94,12 @@ ion-item img, .item-avatar img {
 .item.item-accordion.ng-hide-add,
 .item.item-accordion.ng-hide-remove {
     display: block !important;
+}
+
+
+.bg {
+    background-image: url("../img/top2.jpg");
+    background-size: cover;
+    height: 35%;
+    background-position: center center;
 }

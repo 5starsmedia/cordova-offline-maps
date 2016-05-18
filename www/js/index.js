@@ -4,7 +4,6 @@ var remoteFile;		// the url of the remote mbtiles file to be downloaded
 var msg;			// the span to show messages
 
 localFileName = 'ukraine.mbtiles';
-remoteFile = 'http://5stars.link:8081/ukraine3.mbtiles';
 
 var mapStyle = {
     "version": 8,
@@ -40,14 +39,14 @@ var mapStyle = {
 
 function buildMap(fileName) {
     //var db = sqlitePlugin.openDatabase({ name: '/sdcard/' + localFileName, androidDatabaseImplementation: 2 });
-    /*var map = new mapboxgl.Map({
+    var map = new mapboxgl.Map({
         container: 'map',
         center: [0, 0],
         zoom: 2,
         style: mapStyle,
         bearingSnap: 45
     });
-    map.addControl(new mapboxgl.Navigation());*/
+    map.addControl(new mapboxgl.Navigation());
 }
 
 
@@ -72,10 +71,24 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-
+        console.info('asd')
         var fs;				// file system object
         var ft;				// TileTransfer object
 
+        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + 'www/', function (fileSystem) {
+            var reader = fileSystem.createReader();
+            reader.readEntries(
+                function (entries) {
+                    alert(entries);
+                },
+                function (err) {
+                    alert(err);
+                }
+            );
+        }, function (err) {
+            alert(err);
+        });
+/*
         msg = document.getElementById('message');
 
         console.log('requesting file system...');
@@ -119,7 +132,7 @@ var app = {
             function(error) {
                 msg.innerHTML = "download error source " + error.source + "download error target " + error.target + "upload error code" + error.code;
             });
-        });
+        });*/
     }
 };
 
