@@ -30,6 +30,19 @@ angular.module('starter.services', [])
       });
       return def.promise;
     },
+    getByAlias: function(items) {
+      var def = $q.defer();
+
+      promise.success(function(data) {
+        var res = _.filter(data, function(item) {
+          return items && items.indexOf(item.alias) != -1;
+        });
+        def.resolve(res)
+      }).error(function(err) {
+        def.reject(err);
+      });
+      return def.promise;
+    },
     get: function(pageId) {
       var def = $q.defer();
 

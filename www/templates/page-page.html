@@ -10,8 +10,8 @@
       <div ng-switch-when="card-showcase" class="card">
         <div class="item item-avatar">
           <img ng-src="img/icon/{{page.icon}}.png" />
-          <h2 ng-if="page.title" ng-bind="page.title" style="white-space: normal;"></h2>
-          <p ng-if="page.description" ng-bind="page.description"></p>
+          <h2 ng-if="page.title" style="white-space: normal;">{{page|translate:'title'}}</h2>
+          <p ng-if="page.description">{{page|translate:'description'}}</p>
         </div>
         <div class="item item-image" ng-if="page.image">
           <img ng-src="{{page.image}}" />
@@ -35,8 +35,8 @@
         <div class="item item-divider">Места рядом</div>
         <a class="item item-avatar" href="" ng-repeat="place in places"ui-sref="tab.browse({ alias: place.alias })">
           <img ng-src="img/icon/{{place.icon}}.png" />
-          <h2>{{place.title}}</h2>
-          <p>{{place.description}}</p>
+          <h2>{{place|translate:'title'}}</h2>
+          <p>{{place|translate:'description'}}</p>
         </a>
       </div>
 

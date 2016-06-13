@@ -52,15 +52,15 @@
                 <div class="item item-divider">Language:</div>
                 <ion-radio ng-repeat="language in languages"
                            ng-value="language.alias"
-                           ng-model="currentLanguage" name="language">
+                           ng-model="current.language" name="language">
                     {{ language.title }}
                 </ion-radio>
-                <div class="item item-divider">Map:</div>
+                <!--div class="item item-divider">Map:</div>
                 <ion-radio ng-repeat="map in mapTypes"
                            ng-value="map.value"
                            ng-model="currentMap" name="map">
                     {{ map.title }}
-                </ion-radio>
+                </ion-radio-->
             </div>
         </ion-content>
     </ion-modal-view>

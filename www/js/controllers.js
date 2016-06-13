@@ -1,5 +1,19 @@
 angular.module('starter.controllers', [])
 
+    .run(function($rootScope) {
+      $rootScope.current = { language: 'ru' };
+    })
+    .filter('translate', function ($rootScope) {
+      return function (input, field) {
+        if (angular.isObject(input) && input.translates && input.translates[field] && input.translates[field][$rootScope.current.language]) {
+          return input.translates[field][$rootScope.current.language] || input.translates[field]['ru'];
+        }
+        if (!input || !input[field]) {
+          return;
+        }
+        return input[field];
+      };
+    })
 .controller('SearchCtrl', function($scope, Data) {
 
   $scope.current = {
@@ -18,7 +32,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, $interval, $ionicModal) {
+.controller('ChatsCtrl', function($scope, $interval, $ionicModal, Data) {
   var n = 0;
   function getRandomImage() {
     n++;
@@ -29,11 +43,15 @@ angular.module('starter.controllers', [])
     return $scope.images[ n ];
   }
 
-  $scope.currentLanguage = 'ru';
+
+  Data.getByAlias(['browse', 'places', 'synagogues', 'community', 'hostels', 'food', 'help', 'world', 'compass']).then(function (items) {
+    $scope.menu = items;
+  });
+
   $scope.currentMap = 'online';
   $scope.languages = [
     {alias: 'ru',title: 'Русский'},
-    {alias: 'uk',title: 'Українська'},
+    {alias: 'fr',title: 'Français'},
     {alias: 'en',title: 'English'},
     {alias: 'je',title: 'Иврит'}
   ];

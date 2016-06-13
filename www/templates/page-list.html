@@ -3,8 +3,9 @@
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in list" type="item-text-wrap"
                       ui-sref="tab.browse({ alias: item.alias })">
-              <img ng-src="img/icon/{{item.icon}}.png" />
-              <h2>{{item.title}}</h2>
+              <!--<img ng-src="img/icon/{{item.icon}}.png" />-->
+                <div class="all-icons" ng-class="item.icon"></div>
+              <h2>{{item|translate:'title'}}</h2>
               <p>{{item.description}}</p>
               <i class="icon ion-chevron-right icon-accessory"></i>
             </ion-item>
