@@ -4,6 +4,11 @@
     <!--div bn-fade-helper class="viewport">
         <div style="background-image: url('{{ image.source }}')" class="main image"></div>
     </div-->
+
+    <weather-widget>
+        <span class="weater-temp" ng-bind-html="widget.temp + widget.scale"></span>
+    </weather-widget>
+
     <div class="bg"></div>
 
     <div class="mainMenu">

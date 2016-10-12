@@ -1,10 +1,10 @@
 <ion-view view-title="{{page|translate:'title'}}">
     <ion-content class="with-bg">
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in list" type="item-text-wrap"
-                      ui-sref="tab.browse({ alias: item.alias })">
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in regions" type="item-text-wrap"
+                      ui-sref="tab.browseRegion({ alias: page.originalPage.alias, regionId: item.id })">
               <!--<img ng-src="img/icon/{{item.icon}}.png" />-->
-                <div class="all-icons" ng-class="item.icon"></div>
+                <div class="all-icons ukraine"></div>
               <h2>{{item|translate:'title'}}</h2>
               <p>{{item.description}}</p>
               <i class="icon ion-chevron-right icon-accessory"></i>

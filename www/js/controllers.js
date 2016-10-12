@@ -87,7 +87,7 @@ angular.module('starter.controllers', [])
   nextImage();
 })
 
-.controller('PageListCtrl', function($scope, page, Data) {
+.controller('PageListCtrl', function($scope, page, Data, $ionicScrollDelegate) {
   $scope.page = page;
 
   var places = _.find(page.content, { type: 'places' });
@@ -99,8 +99,20 @@ angular.module('starter.controllers', [])
 
   if (page.items) {
     Data.getItems(page.items).then(function (items) {
+      if (page.filter) {
+        items = _.filter(items, page.filter);
+      }
       $scope.list = items;
     });
+  }
+
+  Data.getRegions().then(function (items) {
+    $scope.regions = _.reverse(items);
+  });
+
+  $scope.toggleItem = function(item) {
+    item.$$isShow = !item.$$isShow;
+    $ionicScrollDelegate.resize();
   }
 })
 
@@ -117,6 +129,29 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+.controller('MoneyCtrl', function($scope, $http) {
+  $scope.current = {
+    money: 1000,
+  };
+  $scope.currentVal = 1000;
+  $scope.loading = true;
+  $http.get('http://jew.5stars.link/api/money').then(function(items) {
+    $scope.loading = false;
+    $scope.rates = items.data;
+    $scope.current.rate = 'USD';
+  }, function() {
+    $scope.loading = false;
+    $scope.error = true;
+  });
+
+  $scope.$watch('current', function() {
+    if (!$scope.rates) {
+      return;
+    }
+    var rate = _.find($scope.rates, { cc: $scope.current.rate });
+    $scope.currentVal = Math.round(($scope.current.money || 0) * rate.rate * 100) / 100;
+  }, true);
 })
 
 .controller('PageCompassCtrl', function($scope) {

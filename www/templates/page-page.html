@@ -3,13 +3,13 @@
     <div ng-repeat="item in page.content" ng-switch="item.type">
 
       <div ng-switch-when="card" class="card">
-        <div class="item item-divider" ng-if="item.title" ng-bind="item.title" ng-click="item.$$isShow = !item.$$isShow"></div>
+        <div class="item item-divider" ng-if="item.title" ng-bind="item.title" ng-click="toggleItem(item)"></div>
         <div class="item item-accordion item-text-wrap" ng-show="item.$$isShow || !item.title" ng-bind-html="item.html"></div>
       </div>
 
       <div ng-switch-when="card-showcase" class="card">
         <div class="item item-avatar">
-          <img ng-src="img/icon/{{page.icon}}.png" />
+          <span class="all-icons" ng-class="page.icon"></span>
           <h2 ng-if="page.title" style="white-space: normal;">{{page|translate:'title'}}</h2>
           <p ng-if="page.description">{{page|translate:'description'}}</p>
         </div>
@@ -34,7 +34,7 @@
       <div ng-switch-when="places" class="card list">
         <div class="item item-divider">Места рядом</div>
         <a class="item item-avatar" href="" ng-repeat="place in places"ui-sref="tab.browse({ alias: place.alias })">
-          <img ng-src="img/icon/{{place.icon}}.png" />
+          <span class="all-icons" ng-class="place.icon"></span>
           <h2>{{place|translate:'title'}}</h2>
           <p>{{place|translate:'description'}}</p>
         </a>

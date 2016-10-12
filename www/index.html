@@ -37,10 +37,10 @@
     <script src="js/services.js"></script>
 </head>
 <body ng-app="starter" ng-class="{'hideHeader': $state.$current.data.hideHeader}">
-<ion-nav-bar class="bar-stable" ng-show="!$state.$current.data.hideHeader">
+<ion-nav-bar class="rlt" class="bar-stable" ng-show="!$state.$current.data.hideHeader">
     <ion-nav-back-button></ion-nav-back-button>
 </ion-nav-bar>
-<ion-nav-view></ion-nav-view>
+<ion-nav-view class="rlt"></ion-nav-view>
 <script id="settings" type="text/ng-template">
     <ion-modal-view>
         <ion-header-bar class="bar-positive">

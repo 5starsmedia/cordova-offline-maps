@@ -155,3 +155,46 @@ app.directive("leafRoute", function() {
         }
     }
 });
+
+
+
+app.directive('weatherWidget', function(weatherService){
+    return{
+        restrict: 'E',
+        transclude: true,
+        scope:false,
+        template: '<div ng-transclude></div>',
+        link: function($scope, $element, $attrs){
+            $scope.widget = {};
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+
+                weatherService.async(position.coords.latitude, position.coords.longitude).then(function(d){
+                    if (!d.query.results) {
+                        return;
+                    }
+                    $scope.data = angular.isArray(d.query.results.channel) ? d.query.results.channel[0].item : d.query.results.channel.item;
+                    $scope.widget.city = $scope.data.title.split('for')[1].split('at')[0].trim();
+                    $scope.widget.temp = weatherService.toC($scope.data.condition.temp);
+
+                    $scope.widget.showSelector = false;
+                    $scope.widget.scale = "&#x2103;";
+
+                    $element.on('mouseenter', function(){
+                        $scope.$apply(function(){
+                            $scope.widget.showSelector =  !$scope.widget.showSelector;
+                        });
+                    });
+
+                    $element.on('mouseleave', function(){
+                        $scope.$apply(function(){
+                            $scope.widget.showSelector =  !$scope.widget.showSelector;
+                        });
+                    })
+                });
+            }, function() {
+                alert('Неудалось получить Ваши координаты');
+            });
+        }
+    }
+});

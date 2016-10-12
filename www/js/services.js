@@ -5,11 +5,21 @@ angular.module('starter.services', [])
   var promise = $http.get('http://jew.5stars.link/api/data');
 
   return {
+    getRegions: function() {
+      var def = $q.defer();
+
+      promise.success(function(data) {
+        def.resolve(data.regions)
+      }).error(function(err) {
+        def.reject(err);
+      });
+      return def.promise;
+    },
     search: function(query) {
       var def = $q.defer();
 
       promise.success(function(data) {
-        var sData = _.filter(data, { type: 'page' });
+        var sData = _.filter(data.places, { type: 'page' });
         sData = $filter('filter')(sData, {'title': query});
         def.resolve(sData)
       }).error(function(err) {
@@ -21,7 +31,7 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        var res = _.filter(data, function(item) {
+        var res = _.filter(data.places, function(item) {
           return items && items.indexOf(item.id) != -1;
         });
         def.resolve(res)
@@ -34,7 +44,7 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        var res = _.filter(data, function(item) {
+        var res = _.filter(data.places, function(item) {
           return items && items.indexOf(item.alias) != -1;
         });
         def.resolve(res)
@@ -47,7 +57,7 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        var page = _.find(data, { alias: pageId });
+        var page = _.find(data.places, { alias: pageId });
         if (page) {
           def.resolve(page);
         } else {
@@ -60,3 +70,17 @@ angular.module('starter.services', [])
     }
   };
 })
+.service('weatherService', function($http){
+  this.async = function(lat,lng){
+    return $http.get(encodeURI('http://query.yahooapis.com/v1/public/yql?q=select item from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(' + lat + ',' + lng + ')")&format=json'))
+      .then(function (response) {
+          return response.data;
+        });
+  },
+    this.toC = function(f){
+      return Math.ceil(Number((f  -  32)  * 5/9).toFixed(2));
+    },
+    this.toF = function(c){
+      return Math.floor(Number((c  *  9/5) + 32).toFixed(1));
+    }
+});

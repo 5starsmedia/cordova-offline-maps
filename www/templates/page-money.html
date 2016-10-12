@@ -1,0 +1,46 @@
+<ion-view view-title="{{page.title}}">
+    <ion-content class="with-bg padding">
+        <div>
+
+            <div class="card">
+                <div class="item item-avatar">
+                    <span class="all-icons" ng-class="page.icon"></span>
+                    <h2 ng-if="page.title" style="white-space: normal;">{{page|translate:'title'}}</h2>
+                    <p ng-if="page.description">{{page|translate:'description'}}</p>
+                </div>
+                <div class="item item-body">
+                    <div ng-controller="MoneyCtrl">
+
+                        <div ng-if="loading">
+                            Загрузка...
+                        </div>
+                        <div ng-if="!loading">
+                            <span ng-if="error" class="alert alert-danger">
+                                Ошибка при подключения к серверу котировок
+                            </span>
+                            <span ng-if="!error">
+                                <label class="item item-input">
+                                    <span class="input-label">Количество</span>
+                                    <input type="number" ng-model="current.money" placeholder="Введите число" style="text-align: right">
+                                </label>
+                                <label class="item item-input item-select" ng-if="rates.length">
+                                    <div class="input-label">
+                                    Валюта
+                                    </div>
+                                    <select ng-model="current.rate" ng-options="rate.cc as rate.cc + ' - ' + rate.txt for rate in rates"></select>
+                                </label>
+                                <label class="item item-input" style="text-align: right !important;display: block;padding-right: 44px;">
+                                    {{currentVal}} {{current.rate}}
+                                </label>
+
+
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

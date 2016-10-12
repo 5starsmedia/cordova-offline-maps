@@ -28,6 +28,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .config(function($stateProvider, $urlRouterProvider) {
 
+  var oblList = [
+    "56e59aa31e4d82515a4ee0d1",
+    "56e59ae71e4d82515a4ee0fb"
+  ];
+
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -85,8 +90,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             templateProvider: function($http, $stateParams, Data, $q) {
               var def = $q.defer();
 
+
               Data.get($stateParams.alias).then(function(page) {
                 var templateUrl = 'templates/page-' + page.type + '.html';
+
+                if (oblList.indexOf(page.id) != -1) {
+                  templateUrl = 'templates/page-regions.html';
+                }
+
+                if (page.id == '57515fe59286b438235f078f') {
+                  templateUrl = 'templates/page-money.html';
+                }
 
                 $http.get(templateUrl).then(function(tpl){
                   def.resolve(tpl.data);
@@ -97,8 +111,60 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           }
         },
         resolve: {
-          page: function(Data, $stateParams) {
-            return Data.get($stateParams.alias);
+          page: function(Data, $stateParams, $q) {
+            var page = Data.get($stateParams.alias),
+              defer = $q.defer();
+
+            page.then(function(page) {
+              if (oblList.indexOf(page.id) != -1) {
+                Data.get('places').then(function(parentPage) {
+                  Data.get('id-' + parentPage.items[0]).then(function(fPage) {
+                    page.originalPage = fPage;
+                    defer.resolve(page);
+                  });
+                });
+              } else {
+                defer.resolve(page);
+              }
+            });
+            return defer.promise;
+          }
+        }
+      })
+      .state('tab.browseRegion', {
+        url: '/menu/:alias/:regionId',
+        views: {
+          'tab-menu': {
+            controller: 'PageListCtrl',
+            templateProvider: function($http, $stateParams, Data, $q) {
+              var def = $q.defer();
+
+
+              Data.get($stateParams.alias).then(function(page) {
+                var templateUrl = 'templates/page-' + page.type + '.html';
+
+                if (oblList.indexOf(page.id) != -1) {
+                  templateUrl = 'templates/page-regions.html';
+                }
+
+                $http.get(templateUrl).then(function(tpl){
+                  def.resolve(tpl.data);
+                });
+              });
+              return def.promise;
+            }
+          }
+        },
+        resolve: {
+          page: function(Data, $stateParams, $q) {
+            var page = Data.get($stateParams.alias),
+              defer = $q.defer();
+
+            page.then(function(page) {
+              page.filter = { regionId: $stateParams.regionId };
+              defer.resolve(page);
+            });
+            return defer.promise;
           }
         }
       })
@@ -122,6 +188,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 })
 
 .run(function($rootScope, $interval, $state) {
+
+  $rootScope.$watch('current.language', function(lang) {
+    if (lang == 'je') {
+      $('.rlt').attr('dir', 'rtl')
+    } else {
+      $('.rlt').attr('dir', 'ltr')
+    }
+  });
 
   try {
   $rootScope.$state = $state;
