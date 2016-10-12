@@ -12,11 +12,12 @@
     <plugin name="org.apache.cordova.file" />
     <plugin name="org.apache.cordova.file-transfer" />
     <plugin name="org.apache.cordova.geolocation" />
-    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
     <plugin name="org.apache.cordova.device-orientation" />
     <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" /-->
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-network-information" />
+    <plugin name="io.litehelpers.cordova.sqlite" spec="0.7.10" source="pgb" />
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
