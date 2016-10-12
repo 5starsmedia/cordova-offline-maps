@@ -9,15 +9,15 @@
     <access origin="*" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
-    <plugin name="org.apache.cordova.file" source="pgb" spec="1.3.3" />
-    <plugin name="org.apache.cordova.file-transfer" source="pgb" spec="0.5.0" />
-    <plugin name="org.apache.cordova.geolocation" source="pgb" spec="0.3.12" />
-    <plugin name="io.litehelpers.cordova.sqlite" spec="0.7.10" source="pgb" />
-    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
-    <plugin name="org.apache.cordova.device-orientation" spec="0.3.11" source="pgb" />
-    <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" /-->
-    <plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" />
-    <plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
+    <plugin name="org.apache.cordova.file" />
+    <plugin name="org.apache.cordova.file-transfer" />
+    <plugin name="org.apache.cordova.geolocation" />
+    <plugin name="io.litehelpers.cordova.sqlite" />
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
+    <plugin name="org.apache.cordova.device-orientation" />
+    <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" /-->
+    <plugin name="cordova-plugin-splashscreen" />
+    <plugin name="cordova-plugin-network-information" />
 
     <feature name="http://api.phonegap.com/1.0/file" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
