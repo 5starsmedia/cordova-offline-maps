@@ -12,7 +12,6 @@
     <plugin name="org.apache.cordova.file" />
     <plugin name="org.apache.cordova.file-transfer" />
     <plugin name="org.apache.cordova.geolocation" />
-    <plugin name="io.litehelpers.cordova.sqlite" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
     <plugin name="org.apache.cordova.device-orientation" />
     <!--plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" /-->
