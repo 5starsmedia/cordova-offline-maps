@@ -117,7 +117,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
             page.then(function(page) {
               if (oblList.indexOf(page.id) != -1) {
-                Data.get('places').then(function(parentPage) {
+                var alias = page.id == '56e59aa31e4d82515a4ee0d1' ? 'places' : 'synagogues';
+                Data.get(alias).then(function(parentPage) {
                   Data.get('id-' + parentPage.items[0]).then(function(fPage) {
                     page.originalPage = fPage;
                     defer.resolve(page);
