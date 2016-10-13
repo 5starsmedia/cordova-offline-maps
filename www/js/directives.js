@@ -193,7 +193,6 @@ app.directive('weatherWidget', function(weatherService){
                     })
                 });
             }, function() {
-                alert('Неудалось получить Ваши координаты');
             });
         }
     }
