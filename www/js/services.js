@@ -22,7 +22,7 @@ angular.module('starter.services', [])
       promise.success(function(data) {
         var sData = _.filter(data.places, { type: 'page' });
         sData = $filter('filter')(sData, {'title': query});
-        def.resolve(sData)
+        def.resolve(angular.copy(sData))
       }).error(function(err) {
         def.reject(err);
       });
@@ -35,7 +35,7 @@ angular.module('starter.services', [])
         var res = _.filter(data.places, function(item) {
           return items && items.indexOf(item.id) != -1;
         });
-        def.resolve(res)
+        def.resolve(angular.copy(res))
       }).error(function(err) {
         def.reject(err);
       });
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
         var res = _.filter(data.places, function(item) {
           return items && items.indexOf(item.alias) != -1;
         });
-        def.resolve(res)
+        def.resolve(angular.copy(res))
       }).error(function(err) {
         def.reject(err);
       });
@@ -60,7 +60,7 @@ angular.module('starter.services', [])
       promise.success(function(data) {
         var page = _.find(data.places, { alias: pageId });
         if (page) {
-          def.resolve(page);
+          def.resolve(angular.copy(page));
         } else {
           def.reject({ err: 'notfound' });
         }
