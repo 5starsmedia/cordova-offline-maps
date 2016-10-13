@@ -107,7 +107,7 @@ angular.module('starter.controllers', [])
   }
 
   Data.getRegions().then(function (items) {
-    $scope.regions = _.reverse(items);
+    $scope.regions = items;
   });
 
   $scope.toggleItem = function(item) {

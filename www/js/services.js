@@ -9,7 +9,8 @@ angular.module('starter.services', [])
       var def = $q.defer();
 
       promise.success(function(data) {
-        def.resolve(data.regions)
+        var regions = _.reverse(angular.copy(data));
+        def.resolve(regions)
       }).error(function(err) {
         def.reject(err);
       });
